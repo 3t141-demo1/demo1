@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app version="2.4"
+         xmlns="http://java.sun.com/xml/ns/j2ee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>
+            classpath:applicationContext.xml
+        </param-value>
+    </context-param>
+    <!-- 负责启动spring容器监听器，将引用上面的上下文参数获取spring配置文件地址 -->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+    <!--  防止乱码 -->
+    <filter>
+        <filter-name>characterEncodingFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+        <init-param>
+            <param-name>forceEncoding</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>characterEncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <!--过滤器名 -->
+        <filter-name>struts2</filter-name>
+        <!--  配置Struts 2.3.16的核心Filter的实现类  -->
+        <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+        <!--  配置Struts 2.5.14的核心Filter的实现类  -->
+        <!-- <filter-class>org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter</filter-class>-->
+    </filter>
+    <!--  让Struts 2的核心Filter拦截所有请求  -->
+    <filter-mapping>
+        <!--过滤器名 -->
+        <filter-name>struts2</filter-name>
+        <!-- 匹配所有请求 -->
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+
+    <welcome-file-list>
+        <welcome-file>login.jsp</welcome-file>
+    </welcome-file-list>
+
+
+</web-app>
+        

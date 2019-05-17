@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd" >
+<struts>
+    <!-- 编码设置 -->
+    <constant name="struts.i18n.encoding" value="utf-8" />
+    <package name="web" extends="struts-default">
+        <action name="*User" class="userAction" method="{1}User">
+            <result name="success">jsp/frame.jsp</result>
+            <result name="login">login.jsp</result>
+            <result name="find">userlist.jsp</result>
+            <result name="view">userview.jsp</result>
+            <result name="query">usermodify.jsp</result>
+            <result name="registerUser">useradd.jsp</result>
+        </action>
+
+        <action name="*Bill" class="billAction" method="{1}Bill">
+            <result name="success">billlist.jsp</result>
+            <result name="find">billview.jsp</result>
+            <result name="update">billmodify.jsp</result>
+            <result name="delete">billlist.jsp</result>
+            <result name="add">billadd.jsp</result>
+        </action>
+
+        <action name="*Provider" class="providerAction" method="{1}Provider">
+            <result name="success">providerlist.jsp</result>
+            <result name="list">providerview.jsp</result>
+            <result name="update">providermodify.jsp</result>
+            <result name="delete">billlist.jsp</result>
+            <result name="add">provideradd.jsp</result>
+            <result name="reload" type="redirectAction">/jsp/allByProvider.action</result>
+        </action>
+
+    </package>
+</struts>

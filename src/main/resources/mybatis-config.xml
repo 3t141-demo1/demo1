@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+<!-- 引入database.properties  文件配置 -->
+<!--	<properties  resource="database.properties">
+		  <property name="driver" value="${driver}"/>
+          <property name="url" value="${url}"/>
+          <property name="username" value="${user}"/>
+          <property name="password" value="${password}"/>
+    </properties>-->
+
+    <!-- <properties resource="database.properties"></properties> -->
+    <settings>
+    <!-- 	<setting name="logImpl" value="LOG4J"></setting> -->
+    	<!-- 设置resultMap  的自动映射级别为NONE  (禁止自动匹配) -->
+    	<setting  name="autoMappingBehavior"  value="FULL"></setting>
+
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+
+    </settings>
+    <typeAliases>
+        <package name="com.xinshi.smbms.pojo"/>
+    </typeAliases>
+
+   <!-- &lt;!&ndash;配置  mybatis  多套运行环境&ndash;&gt;
+	<environments default="development">
+        <environment id="development">
+           &lt;!&ndash;配置事务管理 ，采用JDBC　是事务管理&ndash;&gt;
+            <transactionManager type="JDBC"></transactionManager>
+           &lt;!&ndash;POOLED：mybaitis  自带的数据源，JDNI:基于tomcat 的数据源 &ndash;&gt;
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/smbms"/>
+                <property name="username" value="root"/>
+                <property name="password" value="0603"/>
+
+            </dataSource>
+
+        </environment>
+    </environments>
+
+    &lt;!&ndash;将 mapper 文件 加入到配置文件中&ndash;&gt;
+	<mappers>
+
+        <mapper resource="xml/ProviderMapper.xml"></mapper>
+        <mapper resource="xml/BillMapper.xml"></mapper>
+        <mapper resource="xml/UserMapper.xml"></mapper>
+        <mapper resource="xml/RoleMapper.xml"></mapper>
+       &lt;!&ndash; <mapper resource="xml/AddressMapper.xml"></mapper>&ndash;&gt;
+
+    </mappers>-->
+
+</configuration>
